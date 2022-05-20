@@ -1,0 +1,7 @@
+commande pour démarrer un container runner gitlab :
+docker run -d -v gitlab-runner:/etc/gitlab-runner -v /var/run/docker.sock:/var/run/docker.sock --name myrunner gitlab/gitlab-runner
+
+ensuite pour enregistrer le token du dépot gitlab :
+docker exec -it myrunner gitlab-runner register
+
+Il faudra ensuite renseigner le token, le nom que vous voulez attribuer au runner pour le dépot, le moyen d'exécution des services (docker) et l'image de base des container (vous pouvez indiquer l'image de base ruby)
